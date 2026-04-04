@@ -10,8 +10,7 @@ app = Flask(__name__)
 # Configuracion
 app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///usuarios.db'
 app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
-app.config['JWT_SECRET_KEY'] = 'mi-clave-super-secreta-larga-2024-backend-python'
-
+app.config['JWT_SECRET_KEY'] = os.getenv('JWT_SECRET_KEY')
 db = SQLAlchemy(app)
 jwt = JWTManager(app)
 
